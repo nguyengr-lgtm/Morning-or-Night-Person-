@@ -34,24 +34,24 @@ Known Issues:
 
 
 <script>
-        var morning_count=0;//variable to keep track of the number of times the user answers a question that leads to the morning diagnosis 
+        var Morning_count =0;//variable to keep track of the number of times the user answers a question that leads to the morning diagnosis 
         var Night_count = 0;//variable to keep track of the number of times the user answers a question that leads to the night diagnosis 
 
         function MorningAdd(){ //this function is used to add an additional count to allergy_count each time it is called
-            Morning_count = morning_count + 1; 
-		//alert("morning_count is " + morning_count); I wanted to further clarify that the alert is displaying the count for morning_count, but this code is now irrelevant
+            Morning_count = Morning_count + 1; 
+		//alert("Morning_count is " + Morning_count); I wanted to further clarify that the alert is displaying the count for morning_count, but this code is now irrelevant
         }
 
         function NightAdd(){
-            night_count = night_count + 1;//this function is used to add an additional count to night_count each time it is called
-		//alert("night_count is " + night_count); I wanted to add further clarify that the alert is displaying the count for night_count, but this code is now irrelevant
+            Night_count = Night_count + 1;//this function is used to add an additional count to night_count each time it is called
+		//alert("Night_count is " + Night_count); I wanted to add further clarify that the alert is displaying the count for night_count, but this code is now irrelevant
         }
 
 	function outputResults(){
-		var percent_morning = morning_count/(morning_count + night_count)*100; // This line converts the morning_count into a percentage
-		var percent_night = night_count/(morning_count + night_count)*100; // This line converts the night_count into a percentage
+		var percent_Morning = Morning_count/(Morning_count + Night_count)*100; // This line converts the Morning_count into a percentage
+		var percent_Night = Night_count/(Morning_count + Night_count)*100; // This line converts the Night_count into a percentage
 		var resultsText = document.getElementById("resultsLocation"); // creates a java script link between the variable called "resultsText" and the page element with id of resultsLocation
-		resultsLocation.innerHTML = "Probability it is Morning = " + percent_morning + "% <br> Probability it is a night = " + percent_night + "%" //This line replaces the text from the Results Page with the diagnosis
+		resultsLocation.innerHTML = "Probability it is Morning = " + percent_Morning + "% <br> Probability it is a Night = " + percent_Night + "%" //This line replaces the text from the Results Page with the diagnosis
 	}
 
   </script>
@@ -81,11 +81,11 @@ Known Issues:
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Morning or night?</h1> 
+	<h1>Morning or Night?</h1> 
 </div>
 <!--this section displays the content that the user sees immediately upon opening the website-->
 <div id="content" class="w3-container">
-	<p> Have you ever wondered if you are a morning or night person? Answer a few short questions to find out!</p> <!--Introduce the user to the website-->
+	<p> Have you ever wondered if you are a Morning or Night person? Answer a few short questions to find out!</p> <!--Introduce the user to the website-->
 
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!-- this line presents the first button that users click to proceed to page one-->
 	
@@ -101,7 +101,7 @@ Known Issues:
 	</div>
 	
     	<div id="content" class="w3-container"> <!--creating the question and buttons for Q1-->
-		<p>Are you busiest in the morning or night?</p> <!--I asked the question for Question 1 (Q1) here.-->  
+		<p>Are you busiest in the Morning or Night?</p> <!--I asked the question for Question 1 (Q1) here.-->  
 		<a href="#two" onclick="MorningAdd();" class="w3-btn w3-orange"> Morning</a> <!-- Create Yes (Watery) button for Q1. If clicked, adds one to allergy_count-->
 		<a href="#two" onclick="NightAdd();" class="w3-btn w3-orange"> Night </a> <!-- Create No (Itchy) button for Q1. If clicked, adds one to cold_count-->
 	</div>
@@ -141,8 +141,8 @@ Known Issues:
 
 	<div id="content" class="w3-container">
 		<p> When Would you prefer to have sport practice?</p> <!--I asked the question for Q4 here.--> 
-		<a href="#five" onclick="MorningAdd();" class="w3-btn w3-orange"> morning </a> <!-- Create Yes (Seasonal) button for Q4. If clicked, adds one to allergy_count-->
-		<a href="#five" onclick="NightAdd();" class="w3-btn w3-orange"> night </a> <!-- Create No (Chronic) button for Q4. If clicked, adds one to cold_count-->
+		<a href="#five" onclick="MorningAdd();" class="w3-btn w3-orange"> Morning </a> <!-- Create Yes (Seasonal) button for Q4. If clicked, adds one to allergy_count-->
+		<a href="#five" onclick="NightAdd();" class="w3-btn w3-orange"> Night </a> <!-- Create No (Chronic) button for Q4. If clicked, adds one to cold_count-->
 	</div>
 </div>
 
