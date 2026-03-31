@@ -6,7 +6,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-[ADD YOUR NAME HERE]
+[Grace]
 	
 Further Information:
 https://www.w3schools.com/w3css/default.asp
@@ -17,15 +17,15 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-[ADD YOUR DISCRIPTION HERE]
+[The goal is to determine if you are a morning or night person]
 	
 Known Issues:
-[ADD ANY KNOWN ISSUES HERE]
+[none]
 
 -->
 	
    <head> 
-      <title>This or That</title>  
+      <title>Morning or Night</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -34,28 +34,27 @@ Known Issues:
 
 
 <script>
-        var allergy_count = 0;//variable to keep track of the number of times the user answers a question that leads to the allergy diagnosis 
-        var cold_count = 0;//variable to keep track of the number of times the user answers a question that leads to the cold diagnosis 
+        var morning_count=0;//variable to keep track of the number of times the user answers a question that leads to the morning diagnosis 
+        var Night_count = 0;//variable to keep track of the number of times the user answers a question that leads to the night diagnosis 
 
-        function allergyAdd(){ //this function is used to add an additional count to allergy_count each time it is called
-            allergy_count = allergy_count + 1; 
-		//alert("allergy_count is " + allergy_count); I wanted to further clarify that the alert is displaying the count for allergy_count, but this code is now irrelevant
+        function MorningAdd(){ //this function is used to add an additional count to allergy_count each time it is called
+            Morning_count = morning_count + 1; 
+		//alert("morning_count is " + morning_count); I wanted to further clarify that the alert is displaying the count for morning_count, but this code is now irrelevant
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;//this function is used to add an additional count to cold_count each time it is called
-		//alert("cold_count is " + cold_count); I wanted to add further clarify that the alert is displaying the count for cold_count, but this code is now irrelevant
+        function NightAdd(){
+            night_count = night_count + 1;//this function is used to add an additional count to night_count each time it is called
+		//alert("night_count is " + night_count); I wanted to add further clarify that the alert is displaying the count for night_count, but this code is now irrelevant
         }
 
 	function outputResults(){
-		var percent_allergy = allergy_count/(allergy_count + cold_count)*100; // This line converts the allergy_count into a percentage
-		var percent_cold = cold_count/(allergy_count + cold_count)*100; // This line converts the cold_count into a percentage
+		var percent_morning = morning_count/(morning_count + night_count)*100; // This line converts the morning_count into a percentage
+		var percent_night = night_count/(morning_count + night_count)*100; // This line converts the night_count into a percentage
 		var resultsText = document.getElementById("resultsLocation"); // creates a java script link between the variable called "resultsText" and the page element with id of resultsLocation
-		resultsLocation.innerHTML = "Probability it is allergies = " + percent_allergy + "% <br> Probability it is a cold = " + percent_cold + "%" //This line replaces the text from the Results Page with the diagnosis
+		resultsLocation.innerHTML = "Probability it is Morning = " + percent_morning + "% <br> Probability it is a night = " + percent_night + "%" //This line replaces the text from the Results Page with the diagnosis
 	}
 
   </script>
-
 
 
 <style>	
@@ -82,17 +81,17 @@ Known Issues:
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1> 
+	<h1>Morning or night?</h1> 
 </div>
 <!--this section displays the content that the user sees immediately upon opening the website-->
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p> <!--Introduce the user to the website-->
+	<p> Have you ever wondered if you are a morning or night person? Answer a few short questions to find out!</p> <!--Introduce the user to the website-->
 
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!-- this line presents the first button that users click to proceed to page one-->
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	<p>This code should not determine your sleep schedule.</p>
 </div>
 	
 <!-- this section displays Page for Question 1 and gives user the yes/no options-->
@@ -102,9 +101,9 @@ Known Issues:
 	</div>
 	
     	<div id="content" class="w3-container"> <!--creating the question and buttons for Q1-->
-		<p>Are your eyes watery or itchy?</p> <!--I asked the question for Question 1 (Q1) here.-->  
-		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-orange"> Watery </a> <!-- Create Yes (Watery) button for Q1. If clicked, adds one to allergy_count-->
-		<a href="#two" onclick="coldAdd();" class="w3-btn w3-orange"> Itchy </a> <!-- Create No (Itchy) button for Q1. If clicked, adds one to cold_count-->
+		<p>Are you busiest in the morning or night?</p> <!--I asked the question for Question 1 (Q1) here.-->  
+		<a href="#two" onclick="MorningAdd();" class="w3-btn w3-orange"> Morning</a> <!-- Create Yes (Watery) button for Q1. If clicked, adds one to allergy_count-->
+		<a href="#two" onclick="NightAdd();" class="w3-btn w3-orange"> Night </a> <!-- Create No (Itchy) button for Q1. If clicked, adds one to cold_count-->
 	</div>
 </div>
 	
@@ -115,9 +114,9 @@ Known Issues:
 	</div>
 	
 	<div id="content" class="w3-container"> <!--creating the question and buttons for Q2-->
-		<p>Do you have a fever?</p> <!--I asked the question for Q2 here.--> 
-		<a href="#three" onclick="coldAdd();" class="w3-btn w3-orange"> Yes </a> <!-- Create Yes button for Q2. If clicked, adds one to cold_count-->
-		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-orange"> No </a> <!-- Create No button for Q2. If clicked, adds one to allergy_count-->
+		<p>Do you enjoy waking up at noon?</p> <!--I asked the question for Q2 here.--> 
+		<a href="#three" onclick="MorningAdd();" class="w3-btn w3-orange"> No </a> <!-- Create Yes button for Q2. If clicked, adds one to cold_count-->
+		<a href="#three" onclick="NightAdd();" class="w3-btn w3-orange"> Yes</a> <!-- Create No button for Q2. If clicked, adds one to allergy_count-->
 	</div>
 </div>	
 	
@@ -128,9 +127,9 @@ Known Issues:
 	</div>
 
 	<div id="content" class="w3-container"> <!--creating the question and buttons for Q3-->
-		<p>Do you have a sore throat?</p> <!--I asked the question for Q3 here.--> 
-		<a href="#four" onclick="coldAdd();" class="w3-btn w3-orange"> Yes </a> <!-- Create Yes button for Q3. If clicked, adds one to cold_count-->
-		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-orange"> No </a> <!-- Create No button for Q3. If clicked, adds one to allergy_count-->
+		<p>When are you the most energetic?</p> <!--I asked the question for Q3 here.--> 
+		<a href="#four" onclick="MorningAdd();" class="w3-btn w3-orange"> Morning </a> <!-- Create Yes button for Q3. If clicked, adds one to cold_count-->
+		<a href="#four" onclick="NightAdd();" class="w3-btn w3-orange"> Night </a> <!-- Create No button for Q3. If clicked, adds one to allergy_count-->
 	</div>
 </div>
 	
@@ -141,9 +140,9 @@ Known Issues:
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p> <!--I asked the question for Q4 here.--> 
-		<a href="#five" onclick="allergyAdd();" class="w3-btn w3-orange"> Seasonal </a> <!-- Create Yes (Seasonal) button for Q4. If clicked, adds one to allergy_count-->
-		<a href="#five" onclick="coldAdd();" class="w3-btn w3-orange"> Chronic </a> <!-- Create No (Chronic) button for Q4. If clicked, adds one to cold_count-->
+		<p> When Would you prefer to have sport practice?</p> <!--I asked the question for Q4 here.--> 
+		<a href="#five" onclick="MorningAdd();" class="w3-btn w3-orange"> morning </a> <!-- Create Yes (Seasonal) button for Q4. If clicked, adds one to allergy_count-->
+		<a href="#five" onclick="NightAdd();" class="w3-btn w3-orange"> night </a> <!-- Create No (Chronic) button for Q4. If clicked, adds one to cold_count-->
 	</div>
 </div>
 
@@ -154,9 +153,9 @@ Known Issues:
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>Do you have skin rashes? </p> <!--I asked the question for Q5 here.-->
-		<a href="#six" onclick="allergyAdd();" class="w3-btn w3-orange"> Yes </a> <!-- Create Yes button for Q5. If clicked, adds one to allergy_count-->
-		<a href="#six" onclick="coldAdd();" class="w3-btn w3-orange"> No </a> <!-- Create No button for Q5. If clicked, adds one to cold_count-->
+		<p>sunset or sunrise? </p> <!--I asked the question for Q5 here.-->
+		<a href="#six" onclick="MorningAdd();" class="w3-btn w3-orange"> sunrise</a> <!-- Create Yes button for Q5. If clicked, adds one to allergy_count-->
+		<a href="#six" onclick="NightAdd();" class="w3-btn w3-orange"> sunset </a> <!-- Create No button for Q5. If clicked, adds one to cold_count-->
 	</div>
 </div>
 
@@ -167,9 +166,9 @@ Known Issues:
 	</div>
 
 	<div id="content" class="w3-container"> <!-- creating the content for Q6-->
-		<p>Do you have a stuffy nose?</p> <!--I asked the question for Q6 here.-->
-		<a href="#seven" onclick="coldAdd();" class="w3-btn w3-orange"> Yes </a> <!-- Create Yes button for Q6. If clicked, adds one to cold_count-->
-		<a href="#seven" onclick="allergyAdd();" class="w3-btn w3-orange"> No </a> <!-- Create Yes button for Q6. If clicked, adds one to allergy_count-->
+		<p>Would you rather get things done early or late?</p> <!--I asked the question for Q6 here.-->
+		<a href="#seven" onclick="MorningAdd();" class="w3-btn w3-orange"> early </a> <!-- Create Yes button for Q6. If clicked, adds one to cold_count-->
+		<a href="#seven" onclick="NightAdd();" class="w3-btn w3-orange"> late </a> <!-- Create Yes button for Q6. If clicked, adds one to allergy_count-->
 	</div>
 </div>
 
